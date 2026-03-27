@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Scriptwriter</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; background-color: #fcfcfc; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; object-fit: cover; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- HEADER NAVIGATION --- */
+        header { padding: 20px 0; background: #fff; border-bottom: 1px solid #eaeaea; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .nav-links { display: flex; gap: 30px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: #5a7282; }
+        .social-icons { display: flex; gap: 15px; font-size: 16px; color: #555; }
+        .social-icons i:hover { color: #5a7282; cursor: pointer; }
+        
+        /* BRANDING / LOGO */
+        .brand-section { text-align: center; padding: 40px 0; background: #fff; }
+        .brand-section h1 { font-family: 'Playfair Display', serif; font-size: 40px; letter-spacing: 3px; text-transform: uppercase; }
+        .brand-section p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #777; margin-top: 5px; }
+
+        /* --- HERO / AUTHOR BIO SECTION --- */
+        /* Mimics the blue split-screen from the second image */
+        .hero { background-color: #647b89; color: #fff; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+        .hero-text { padding: 60px 80px; }
+        .hero-text h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 40px; margin-bottom: 20px; font-weight: 400; }
+        .hero-text p { margin-bottom: 20px; font-size: 15px; line-height: 1.8; color: #e0e6ea; }
+        .btn-outline { display: inline-block; padding: 12px 30px; border: 1px solid #fff; color: #fff; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
+        .btn-outline:hover { background-color: #fff; color: #647b89; }
+        /* Placeholder for your uploaded picture */
+        .hero-image { height: 100%; min-height: 500px; background-color: #5a7282; background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead27d8?w=800&q=80'); background-size: cover; background-position: center; }
+
+        /* --- SCRIPT GRID SECTION --- */
+        .scripts-section { padding: 80px 0; text-align: center; }
+        .scripts-section h3 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 50px; }
+        
+        /* Strict 4-Column Grid for Scripts */
+        .script-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: left; }
+        .script-card { background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; height: 100%; }
+        
+        /* Script Cover (using dark placeholders to look like books/scripts) */
+        .script-cover { background-color: #222; height: 350px; display: flex; align-items: center; justify-content: center; color: #fff; margin-bottom: 20px; font-family: 'Playfair Display', serif; font-size: 24px; text-align: center; padding: 20px; position: relative; }
+        /* Different placeholder colors for variety */
+        .cover-1 { background: linear-gradient(to bottom, #1a2a6c, #112); }
+        .cover-2 { background: linear-gradient(to bottom, #2c3e50, #000); }
+        .cover-3 { background: linear-gradient(to bottom, #4b134f, #111); }
+        .cover-4 { background: linear-gradient(to bottom, #232526, #414345); }
+        
+        .script-title { font-size: 18px; font-weight: 600; margin-bottom: 10px; color: #5a7282; }
+        .script-logline { font-size: 13px; color: #666; margin-bottom: 20px; flex-grow: 1; }
+        .btn-read { display: block; text-align: center; background-color: #647b89; color: #fff; padding: 10px 0; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-read:hover { background-color: #4a5c66; }
+
+        /* --- FOOTER --- */
+        footer { background-color: #647b89; color: #fff; text-align: center; padding: 40px 20px; font-size: 13px; }
+
+        /* --- RESPONSIVE FALLBACKS --- */
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-image { min-height: 400px; }
+            .script-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .script-grid { grid-template-columns: 1fr; }
+            .hero-text { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Scripts</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="social-icons">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="brand-section">
+        <h1>Your Name</h1>
+        <p>Provocative Storytelling & Screenwriting</p>
+    </section>
+
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <h2>Welcome</h2>
+                <p>Hi there and welcome to my scriptwriting portfolio.</p>
+                <p>I am a passionate screenwriter dedicated to crafting compelling narratives, complex characters, and immersive worlds. Take a look around to read my latest specs, pilots, and feature films.</p>
+                <p>If you're an industry professional or just a fan of a good story, feel free to dive into my work and drop a review.</p>
+                <a href="#scripts" class="btn-outline">Browse Scripts</a>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </section>
+
+    <section id="scripts" class="scripts-section container">
+        <h3>Original Screenplays</h3>
+        
+        <div class="script-grid">
+            <div class="script-card">
+                <div class="script-cover cover-1">The Silent Echo</div>
+                <h4 class="script-title">The Silent Echo</h4>
+                <p class="script-logline">When a deaf detective discovers a radio frequency only she can feel, she uncovers a conspiracy that threatens her entire city.</p>
+                <a href="script.html" class="btn-read">Read & Review</a>
+            </div>
+
+            <div class="script-card">
+                <div class="script-cover cover-2">Neon Rain</div>
+                <h4 class="script-title">Neon Rain</h4>
+                <p class="script-logline">In a cyberpunk future, a rogue AI hires a burnt-out private investigator to find out who is deleting its memories.</p>
+                <a href="script.html" class="btn-read">Read & Review</a>
+            </div>
+
+            <div class="script-card">
+                <div class="script-cover cover-3">The Last Heir</div>
+                <h4 class="script-title">The Last Heir</h4>
+                <p class="script-logline">A historical drama following the forgotten bastard son of a king who must reclaim his throne before a tyrannical duke destroys the realm.</p>
+                <a href="script.html" class="btn-read">Read & Review</a>
+            </div>
+
+            <div class="script-card">
+                <div class="script-cover cover-4">Midnight Run</div>
+                <h4 class="script-title">Midnight Run</h4>
+                <p class="script-logline">Two rival getaway drivers are forced to team up when a heist goes wrong, leading to a high-speed chase across the country.</p>
+                <a href="script.html" class="btn-read">Read & Review</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright © 2026 Your Name | Screenwriter</p>
+    </footer>
+
+</body>
+                  </html>
+                  
