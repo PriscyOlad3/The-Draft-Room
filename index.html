@@ -14,9 +14,8 @@
         body { font-family: 'Poppins', sans-serif; color: #2c3e50; line-height: 1.7; background-color: #faf9f6; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
-        img { max-width: 100%; display: block; object-fit: cover; }
         
-        /* --- HEADER NAVIGATION --- */
+        /* --- HEADER NAVIGATION (Just links & socials, no logo) --- */
         header { padding: 25px 5%; display: flex; justify-content: space-between; align-items: center; background: transparent; }
         
         .nav-links { display: flex; gap: 30px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
@@ -25,21 +24,21 @@
         .header-socials { display: flex; gap: 20px; font-size: 14px; color: #555; }
         .header-socials a:hover { color: #d4af37; transform: scale(1.1); }
 
-        /* --- HERO SECTION (True Side-by-Side Layout) --- */
-        .hero-section { max-width: 1200px; margin: 40px auto 100px; padding: 0 20px; display: flex; align-items: center; gap: 60px; }
+        /* --- HERO SECTION (Edge-to-Edge 50/50 Split like E.L. James) --- */
+        .hero-section { display: flex; width: 100%; min-height: 80vh; background-color: #faf9f6; align-items: stretch; margin-bottom: 100px; }
         
-        /* The Image Box */
-        .hero-image-container { flex: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
-        .hero-image-container img { width: 100%; height: auto; display: block; }
-        
-        /* The Text Box */
-        .hero-text-card { flex: 1; }
+        /* The Text Half (Left Side) */
+        .hero-text-card { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 5% 10%; }
         .hero-text-card h1 { font-family: 'Playfair Display', serif; font-size: 48px; line-height: 1.2; margin-bottom: 20px; color: #1a1a1a; }
         .hero-text-card h1 i { font-weight: 400; color: #666; font-size: 38px; }
         .hero-text-card p { margin-bottom: 20px; font-size: 15px; color: #555; }
         
-        .btn-primary { display: inline-block; padding: 14px 35px; background-color: #1a1a1a; color: #fff; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; margin-top: 15px; }
+        .btn-primary { display: inline-block; padding: 14px 35px; background-color: #1a1a1a; color: #fff; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; margin-top: 15px; width: fit-content; }
         .btn-primary:hover { background-color: #d4af37; color: #fff; transform: translateY(-2px); }
+
+        /* The Image Half (Right Side) */
+        .hero-image-container { flex: 1; }
+        .hero-image-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         /* --- SCRIPT GALLERY --- */
         .portfolio-section { max-width: 1200px; margin: 0 auto 100px; padding: 0 20px; }
@@ -78,9 +77,14 @@
             header { flex-direction: column; gap: 20px; text-align: center; }
             .nav-links { gap: 15px; justify-content: center; flex-wrap: wrap; font-size: 11px; }
             .header-socials { justify-content: center; }
-            
-            .hero-section { flex-direction: column; text-align: center; gap: 30px; margin-top: 20px; }
-            .hero-image-container { width: 100%; max-width: 600px; margin: 0 auto; }
+        }
+        
+        /* Only stack the image and text on phone-sized screens so it doesn't get squished */
+        @media (max-width: 768px) {
+            .hero-section { flex-direction: column-reverse; min-height: auto; }
+            .hero-text-card { padding: 40px 20px; text-align: center; }
+            .btn-primary { margin: 15px auto 0; }
+            .hero-image-container { width: 100%; height: 400px; }
         }
     </style>
 </head>
@@ -106,16 +110,16 @@
 
     <section class="hero-section">
         
-        <div class="hero-image-container">
-            <img src="Priscy.jpg" alt="Priscy Olad">
-        </div>
-        
         <div class="hero-text-card">
             <h1>The Draft Room<br><i>by Priscy Olad</i></h1>
             <p><strong>Welcome to my creative space.</strong></p>
             <p>I am a passionate screenwriter dedicated to bringing compelling characters, sharp dialogue, and gripping narratives to the page.</p>
             <p>This is my personal portfolio—a place where my original scripts live before they hit the screen. Whether you're an industry professional or a fellow writer, I invite you to explore my worlds.</p>
             <a href="#scripts" class="btn-primary">Explore Scripts</a>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="image/Priscy.jpg" alt="Priscy Olad">
         </div>
         
     </section>
@@ -130,7 +134,7 @@
             
             <div class="script-card">
                 <div class="cover-wrapper">
-                    <img src="Under-the-white-coat.jpg" alt="Under the white coat cover" class="cover-img">
+                    <img src="image/Under-the-white-coat.jpg" alt="Under the white coat cover" class="cover-img">
                 </div>
                 <div class="script-info">
                     <h3>Under The White Coat</h3>
