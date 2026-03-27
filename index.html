@@ -11,7 +11,7 @@
     <style>
         /* --- RESET & BASE STYLES --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: #2c3e50; line-height: 1.7; background-color: #faf9f6; /* Very soft, warm off-white */ }
+        body { font-family: 'Poppins', sans-serif; color: #2c3e50; line-height: 1.7; background-color: #faf9f6; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; object-fit: cover; }
@@ -19,27 +19,27 @@
         /* --- HEADER NAVIGATION --- */
         header { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; background: transparent; }
         .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; letter-spacing: 1px; color: #1a1a1a; }
-        .logo span { color: #d4af37; /* Subtle gold accent */ }
+        .logo span { color: #d4af37; }
         .nav-links { display: flex; gap: 35px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
         .nav-links a:hover { color: #d4af37; }
 
-        /* --- MODERN OVERLAPPING HERO SECTION --- */
-        .hero-section { position: relative; max-width: 1200px; margin: 60px auto 100px; padding: 0 20px; min-height: 600px; display: flex; align-items: center; }
+        /* --- HERO SECTION (True Side-by-Side Layout) --- */
+        .hero-section { max-width: 1200px; margin: 40px auto 100px; padding: 0 20px; display: flex; align-items: center; gap: 60px; }
         
-        /* The Image sits on the right */
-        .hero-image { position: absolute; right: 20px; top: 0; width: 55%; height: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        /* The Image Box */
+        .hero-image-container { flex: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+        .hero-image-container img { width: 100%; height: auto; display: block; }
         
-        /* The Text Box floats over the left side of the image */
-        .hero-text-card { position: relative; z-index: 2; width: 50%; background: rgba(255, 255, 255, 0.97); padding: 60px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.03); backdrop-filter: blur(10px); }
-        .hero-text-card h1 { font-family: 'Playfair Display', serif; font-size: 50px; line-height: 1.1; margin-bottom: 25px; color: #1a1a1a; }
-        .hero-text-card h1 i { font-weight: 400; color: #666; font-size: 40px; }
+        /* The Text Box */
+        .hero-text-card { flex: 1; }
+        .hero-text-card h1 { font-family: 'Playfair Display', serif; font-size: 48px; line-height: 1.2; margin-bottom: 20px; color: #1a1a1a; }
+        .hero-text-card h1 i { font-weight: 400; color: #666; font-size: 38px; }
         .hero-text-card p { margin-bottom: 20px; font-size: 15px; color: #555; }
         
         .btn-primary { display: inline-block; padding: 14px 35px; background-color: #1a1a1a; color: #fff; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; margin-top: 15px; }
         .btn-primary:hover { background-color: #d4af37; color: #fff; transform: translateY(-2px); }
 
-        /* --- SCRIPT GALLERY (Clean, floating cards) --- */
+        /* --- SCRIPT GALLERY --- */
         .portfolio-section { max-width: 1200px; margin: 0 auto 100px; padding: 0 20px; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: #1a1a1a; }
@@ -47,20 +47,22 @@
 
         .script-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
         
-        .script-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.02); }
+        .script-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.02); display: flex; flex-direction: column; }
         .script-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         
         .cover-wrapper { width: 100%; height: 360px; overflow: hidden; }
         .cover-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .script-card:hover .cover-img { transform: scale(1.05); } /* Subtle zoom effect on hover */
+        .script-card:hover .cover-img { transform: scale(1.05); }
         
-        /* Placeholder styling for empty scripts */
         .placeholder-cover { background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; color: #aaa; font-size: 20px; font-style: italic; }
 
-        .script-info { padding: 30px; text-align: center; }
-        .script-info h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 10px; color: #1a1a1a; }
-        .script-info p { font-size: 13px; color: #666; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-        .read-link { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #1a1a1a; border-bottom: 2px solid #d4af37; padding-bottom: 3px; }
+        .script-info { padding: 30px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
+        .script-info h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 15px; color: #1a1a1a; }
+        
+        /* Updated logline styles so your full tagline shows */
+        .script-info p { font-size: 13px; color: #555; margin-bottom: 25px; flex-grow: 1; line-height: 1.8; }
+        
+        .read-link { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #1a1a1a; border-bottom: 2px solid #d4af37; padding-bottom: 3px; align-self: center; }
         .read-link:hover { color: #d4af37; }
 
         /* --- FOOTER --- */
@@ -69,11 +71,10 @@
         .footer-socials a:hover { color: #d4af37; }
         .copyright { font-size: 12px; letter-spacing: 1px; color: #888; }
 
-        /* --- RESPONSIVE DESIGN (For tablets and phones) --- */
+        /* --- RESPONSIVE DESIGN (Mobile adjustments) --- */
         @media (max-width: 992px) {
-            .hero-section { flex-direction: column; padding-top: 40px; }
-            .hero-image { position: relative; width: 100%; right: 0; height: 400px; margin-bottom: -50px; }
-            .hero-text-card { width: 90%; margin: 0 auto; padding: 40px; text-align: center; }
+            .hero-section { flex-direction: column; text-align: center; gap: 30px; margin-top: 20px; }
+            .hero-image-container { width: 100%; max-width: 600px; margin: 0 auto; }
             .nav-links { display: none; }
         }
     </style>
@@ -90,7 +91,8 @@
     </header>
 
     <section class="hero-section">
-        <div class="hero-image">
+        
+        <div class="hero-image-container">
             <img src="image/Priscy.jpg" alt="Priscy Olad">
         </div>
         
@@ -101,6 +103,7 @@
             <p>This is my personal portfolio—a place where my original scripts live before they hit the screen. Whether you're an industry professional or a fellow writer, I invite you to explore my worlds.</p>
             <a href="#scripts" class="btn-primary">Explore Scripts</a>
         </div>
+        
     </section>
 
     <section id="scripts" class="portfolio-section">
@@ -117,7 +120,11 @@
                 </div>
                 <div class="script-info">
                     <h3>Under The White Coat</h3>
-                    <p>When a young medical resident discovers a cover-up at her prestigious hospital, she must risk her career to expose the truth.</p>
+                    <p>
+                        <em>Under the coat, a doctor hides his sickness.<br>
+                        Behind the courtroom, a lawyer hides his crimes.<br>
+                        In the shadow, one's saviour can be one's destroyer.</em>
+                    </p>
                     <a href="script.html" class="read-link">Read Script</a>
                 </div>
             </div>
@@ -140,17 +147,6 @@
                 <div class="script-info">
                     <h3>The Last Heir</h3>
                     <p>A historical drama following the forgotten bastard son of a king who must reclaim his throne before a tyrannical duke destroys the realm.</p>
-                    <a href="script.html" class="read-link">Read Script</a>
-                </div>
-            </div>
-
-            <div class="script-card">
-                <div class="cover-wrapper">
-                    <div class="placeholder-cover">Coming Soon</div>
-                </div>
-                <div class="script-info">
-                    <h3>Midnight Run</h3>
-                    <p>Two rival getaway drivers are forced to team up when a heist goes wrong, leading to a high-speed chase across the country.</p>
                     <a href="script.html" class="read-link">Read Script</a>
                 </div>
             </div>
