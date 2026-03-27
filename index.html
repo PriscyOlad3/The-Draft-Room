@@ -5,92 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Draft Room | Priscy Olad</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- RESET & BASE STYLES --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: #2c3e50; line-height: 1.7; background-color: #faf9f6; }
+        body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background-color: #f9f9f9; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
         
-        /* --- HEADER NAVIGATION (Just links & socials, no logo) --- */
-        header { padding: 25px 5%; display: flex; justify-content: space-between; align-items: center; background: transparent; }
-        
-        .nav-links { display: flex; gap: 30px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
-        .nav-links a:hover { color: #d4af37; }
-
-        .header-socials { display: flex; gap: 20px; font-size: 14px; color: #555; }
-        .header-socials a:hover { color: #d4af37; transform: scale(1.1); }
-
-        /* --- HERO SECTION (Edge-to-Edge 50/50 Split like E.L. James) --- */
-        .hero-section { display: flex; width: 100%; min-height: 80vh; background-color: #faf9f6; align-items: stretch; margin-bottom: 100px; }
-        
-        /* The Text Half (Left Side) */
-        .hero-text-card { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 5% 10%; }
-        .hero-text-card h1 { font-family: 'Playfair Display', serif; font-size: 48px; line-height: 1.2; margin-bottom: 20px; color: #1a1a1a; }
-        .hero-text-card h1 i { font-weight: 400; color: #666; font-size: 38px; }
-        .hero-text-card p { margin-bottom: 20px; font-size: 15px; color: #555; }
-        
-        .btn-primary { display: inline-block; padding: 14px 35px; background-color: #1a1a1a; color: #fff; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; margin-top: 15px; width: fit-content; }
-        .btn-primary:hover { background-color: #d4af37; color: #fff; transform: translateY(-2px); }
-
-        /* The Image Half (Right Side) */
-        .hero-image-container { flex: 1; }
-        .hero-image-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        /* --- SCRIPT GALLERY --- */
-        .portfolio-section { max-width: 1200px; margin: 0 auto 100px; padding: 0 20px; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: #1a1a1a; }
-        .section-header p { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: #888; margin-top: 5px; }
-
-        .script-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
-        
-        .script-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.02); display: flex; flex-direction: column; }
-        .script-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        
-        .cover-wrapper { width: 100%; height: 360px; overflow: hidden; }
-        .cover-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .script-card:hover .cover-img { transform: scale(1.05); }
-        
-        .placeholder-cover { background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; color: #aaa; font-size: 20px; font-style: italic; }
-
-        .script-info { padding: 30px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
-        .script-info h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 15px; color: #1a1a1a; }
-        
-        /* Logline styles */
-        .script-info p { font-size: 13px; color: #555; margin-bottom: 25px; flex-grow: 1; line-height: 1.8; }
-        
-        .read-link { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #1a1a1a; border-bottom: 2px solid #d4af37; padding-bottom: 3px; align-self: center; }
-        .read-link:hover { color: #d4af37; }
-
-        /* --- FOOTER --- */
-        footer { background-color: #1a1a1a; color: #fff; text-align: center; padding: 50px 20px; margin-top: 50px; }
-        .footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; font-size: 18px; }
-        .footer-socials a:hover { color: #d4af37; }
-        .copyright { font-size: 12px; letter-spacing: 1px; color: #888; }
-
-        /* --- RESPONSIVE DESIGN (Mobile adjustments) --- */
-        @media (max-width: 992px) {
-            header { flex-direction: column; gap: 20px; text-align: center; }
-            .nav-links { gap: 15px; justify-content: center; flex-wrap: wrap; font-size: 11px; }
-            .header-socials { justify-content: center; }
+        /* --- 1. TOP NAVIGATION BAR (Solid White) --- */
+        .top-bar {
+            background-color: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
         }
+        .nav-links { display: flex; gap: 25px; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; }
+        .nav-links a:hover { color: #888; }
+        .social-icons { display: flex; gap: 15px; font-size: 13px; color: #555; }
+        .social-icons a:hover { color: #000; }
+
+        /* --- 2. LOGO / BRANDING AREA (Solid White) --- */
+        .brand-area {
+            background-color: #fff;
+            text-align: center;
+            padding: 40px 20px 30px;
+        }
+        .brand-area h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+        .brand-area p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 22px;
+            color: #888;
+        }
+
+        /* --- 3. HERO IMAGE BANNER (Exactly like E.L. James) --- */
+        .hero-banner {
+            width: 100%;
+            height: 450px; /* Kept short, not too long! */
+            background-image: url('image/Priscy.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        /* The write-up floating inside the image */
+        .hero-text {
+            width: 45%; /* Keeps text on the left half */
+            color: #fff; /* White text to stand out on the image */
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.4); /* Slight shadow just in case the image is bright */
+        }
+        .hero-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .hero-text p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 30px;
+            border: 1px solid #fff;
+            color: #fff;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+        .btn-outline:hover {
+            background-color: #fff;
+            color: #1a1a1a;
+            text-shadow: none;
+        }
+
+        /* --- 4. SCRIPT GALLERY --- */
+        .portfolio-section { max-width: 1200px; margin: 60px auto 100px; padding: 0 20px; }
+        .script-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
         
-        /* Only stack the image and text on phone-sized screens so it doesn't get squished */
+        .script-card { background: #fff; display: flex; flex-direction: column; text-align: center; }
+        .cover-wrapper { width: 100%; height: 380px; overflow: hidden; }
+        .cover-img { width: 100%; height: 100%; object-fit: cover; }
+        .placeholder-cover { background: #e9ecef; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; color: #888; font-size: 18px; font-style: italic; }
+
+        .script-info { padding: 20px 15px; display: flex; flex-direction: column; flex-grow: 1; }
+        .script-info h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 10px; color: #1a1a1a; }
+        .script-info p { font-size: 12px; color: #666; margin-bottom: 20px; line-height: 1.6; flex-grow: 1; }
+        .read-btn { display: inline-block; padding: 10px 20px; background-color: #6a8090; color: #fff; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+        .read-btn:hover { background-color: #4a5d6a; }
+
+        /* --- 5. CLEAN FOOTER --- */
+        footer { background-color: #6a8090; color: #fff; text-align: center; padding: 20px; margin-top: 50px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* --- MOBILE DESIGN FIXES (Stopping the rubbish look) --- */
+        @media (max-width: 900px) {
+            .hero-text { width: 80%; } /* Gives text more room on tablets */
+        }
         @media (max-width: 768px) {
-            .hero-section { flex-direction: column-reverse; min-height: auto; }
-            .hero-text-card { padding: 40px 20px; text-align: center; }
-            .btn-primary { margin: 15px auto 0; }
-            .hero-image-container { width: 100%; height: 400px; }
+            /* Neatly stacks the header on small screens */
+            .top-bar { flex-direction: column; gap: 15px; padding: 20px 5%; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            
+            /* Adjusts the hero image for mobile */
+            .hero-banner { height: auto; padding: 60px 5%; background-position: top center; }
+            .hero-text { width: 100%; text-align: center; }
+            .hero-text h2 { font-size: 32px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <nav class="top-bar">
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
@@ -99,37 +142,31 @@
             <li><a href="#">Shop</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
-        
-        <div class="header-socials">
+        <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-    </header>
+    </nav>
 
-    <section class="hero-section">
-        
-        <div class="hero-text-card">
-            <h1>The Draft Room<br><i>by Priscy Olad</i></h1>
-            <p><strong>Welcome to my creative space.</strong></p>
+    <div class="brand-area">
+        <h1>Priscy Olad</h1>
+        <p>The Draft Room</p>
+    </div>
+
+    <section class="hero-banner">
+        <div class="hero-text">
+            <h2>Welcome</h2>
+            <p><strong>Hi there and welcome to my creative space.</strong></p>
             <p>I am a passionate screenwriter dedicated to bringing compelling characters, sharp dialogue, and gripping narratives to the page.</p>
-            <p>This is my personal portfolio—a place where my original scripts live before they hit the screen. Whether you're an industry professional or a fellow writer, I invite you to explore my worlds.</p>
-            <a href="#scripts" class="btn-primary">Explore Scripts</a>
+            <p>This is my personal portfolio—a place where my original scripts live before they hit the screen. Feel free to look around.</p>
+            <p>All the best,<br>Priscy</p>
+            <a href="#scripts" class="btn-outline">Browse Scripts</a>
         </div>
-
-        <div class="hero-image-container">
-            <img src="image/Priscy.jpg" alt="Priscy Olad">
-        </div>
-        
     </section>
 
     <section id="scripts" class="portfolio-section">
-        <div class="section-header">
-            <h2>Original Works</h2>
-            <p>Screenplays & Pilots</p>
-        </div>
-
         <div class="script-grid">
             
             <div class="script-card">
@@ -143,7 +180,7 @@
                         Behind the courtroom, a lawyer hides his crimes.<br>
                         In the shadow, one's saviour can be one's destroyer.</em>
                     </p>
-                    <a href="script.html" class="read-link">Read Script</a>
+                    <a href="script.html" class="read-btn">View Script</a>
                 </div>
             </div>
 
@@ -154,7 +191,7 @@
                 <div class="script-info">
                     <h3>Neon Rain</h3>
                     <p>In a cyberpunk future, a rogue AI hires a burnt-out private investigator to find out who is deleting its memories.</p>
-                    <a href="script.html" class="read-link">Read Script</a>
+                    <a href="script.html" class="read-btn">View Script</a>
                 </div>
             </div>
 
@@ -165,7 +202,7 @@
                 <div class="script-info">
                     <h3>The Last Heir</h3>
                     <p>A historical drama following the forgotten bastard son of a king who must reclaim his throne before a tyrannical duke destroys the realm.</p>
-                    <a href="script.html" class="read-link">Read Script</a>
+                    <a href="script.html" class="read-btn">View Script</a>
                 </div>
             </div>
 
@@ -173,12 +210,7 @@
     </section>
 
     <footer>
-        <div class="footer-socials">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <p class="copyright">© 2026 Priscy Olad | The Draft Room</p>
+        <p>Copyright © 2026 Priscy Olad | Site Credits</p>
     </footer>
 
 </body>
