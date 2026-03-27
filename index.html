@@ -5,79 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Draft Room | Priscy Olad</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- RESET & BASE STYLES --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; background-color: #fcfcfc; }
+        body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; background-color: #ffffff; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; object-fit: cover; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
         /* --- HEADER NAVIGATION --- */
-        header { padding: 20px 0; background: #fff; border-bottom: 1px solid #eaeaea; }
+        header { padding: 15px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
-        .nav-links { display: flex; gap: 30px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a:hover { color: #5a7282; }
-        .social-icons { display: flex; gap: 15px; font-size: 16px; color: #555; }
-        .social-icons i:hover { color: #5a7282; cursor: pointer; }
+        .nav-links { display: flex; gap: 25px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
+        .nav-links a:hover { color: #888; }
+        .social-icons { display: flex; gap: 15px; font-size: 14px; color: #555; }
         
-        /* --- BRANDING / LOGO --- */
-        .brand-section { text-align: center; padding: 40px 0; background: #fff; }
-        .brand-section h1 { font-family: 'Playfair Display', serif; font-size: 40px; letter-spacing: 3px; text-transform: uppercase; }
-        .brand-section p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #777; margin-top: 5px; }
+        /* --- BRANDING / LOGO SECTION --- */
+        .brand-section { text-align: center; padding: 50px 0 40px; }
+        .brand-section h1 { font-family: 'Playfair Display', serif; font-size: 42px; letter-spacing: 4px; text-transform: uppercase; font-weight: 400; color: #222; }
+        /* Cursive Subtitle */
+        .brand-section p { font-family: 'Great Vibes', cursive; font-size: 32px; color: #666; margin-top: -5px; }
 
-        /* --- HERO / AUTHOR BIO SECTION --- */
-        .hero { background-color: #647b89; color: #fff; padding: 80px 20px; }
-        .hero-grid { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+        /* --- HERO / AUTHOR BIO SECTION (Light & Bright!) --- */
+        /* Replicating the full-width edge-to-edge layout, but keeping it light */
+        .hero-wrapper { max-width: 1200px; margin: 0 auto; background-color: #fcfcfc; border: 1px solid #eaeaea; display: flex; align-items: stretch; margin-bottom: 50px; }
         
-        /* This places your picture perfectly beside the text */
-        .hero-image-container { flex: 0 0 350px; }
-        .hero-image-container img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .hero-text { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; background-color: #f9f9f9; }
+        /* Cursive "Welcome" */
+        .hero-text h2 { font-family: 'Great Vibes', cursive; font-size: 48px; margin-bottom: 20px; color: #444; font-weight: 400; }
+        .hero-text p { margin-bottom: 15px; font-size: 14px; line-height: 1.8; color: #444; }
         
-        .hero-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .hero-text h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 40px; margin-bottom: 20px; font-weight: 400; }
-        .hero-text p { margin-bottom: 20px; font-size: 15px; line-height: 1.8; color: #e0e6ea; }
-        .btn-outline { display: inline-block; padding: 12px 30px; border: 1px solid #fff; color: #fff; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; width: fit-content; }
-        .btn-outline:hover { background-color: #fff; color: #647b89; }
+        .btn-solid { display: inline-block; padding: 12px 30px; background-color: #7b9eb0; color: #fff; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; width: fit-content; border: none; cursor: pointer; }
+        .btn-solid:hover { background-color: #648293; }
+
+        /* Your Picture seamlessly filling the right side */
+        .hero-image-container { flex: 1; min-height: 450px; background-image: url('image/Priscy.jpg'); background-size: cover; background-position: center; }
+
+        /* --- NEWSLETTER STRIP --- */
+        .newsletter { background-color: #f4f4f4; padding: 40px 20px; text-align: center; margin-bottom: 60px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .newsletter h3 { font-family: 'Great Vibes', cursive; font-size: 32px; color: #555; font-weight: 400; }
+        .newsletter input { padding: 12px 20px; width: 300px; border: 1px solid #ccc; font-family: 'Poppins', sans-serif; font-size: 13px; outline: none; }
+        .newsletter button { padding: 12px 30px; background-color: #fff; border: 1px solid #ccc; color: #333; font-weight: 500; letter-spacing: 1px; font-size: 12px; cursor: pointer; text-transform: uppercase; }
+        .newsletter button:hover { background-color: #eee; }
 
         /* --- SCRIPT GRID SECTION --- */
-        .scripts-section { padding: 80px 0; text-align: center; }
-        .scripts-section h3 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 50px; }
+        .scripts-section { padding-bottom: 80px; text-align: center; }
+        .script-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
         
-        .script-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: left; }
-        .script-card { background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; height: 100%; }
+        /* Matching the E.L. James book display style perfectly */
+        .script-card { display: flex; flex-direction: column; }
         
-        /* STYLES FOR REAL IMAGE COVERS */
-        .real-cover-img { width: 100%; height: 350px; object-fit: cover; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        /* Your bright images will go here */
+        .real-cover-img { width: 100%; height: 380px; object-fit: cover; margin-bottom: 15px; box-shadow: 2px 4px 12px rgba(0,0,0,0.08); }
+        .placeholder-cover { background-color: #eef2f5; width: 100%; height: 380px; display: flex; align-items: center; justify-content: center; color: #999; margin-bottom: 15px; font-family: 'Playfair Display', serif; font-size: 20px; box-shadow: 2px 4px 12px rgba(0,0,0,0.08); }
         
-        /* STYLES FOR PLACEHOLDER COVERS */
-        .script-cover { background-color: #222; height: 350px; display: flex; align-items: center; justify-content: center; color: #fff; margin-bottom: 20px; font-family: 'Playfair Display', serif; font-size: 24px; text-align: center; padding: 20px; }
-        .cover-2 { background: linear-gradient(to bottom, #2c3e50, #000); }
-        .cover-3 { background: linear-gradient(to bottom, #4b134f, #111); }
-        .cover-4 { background: linear-gradient(to bottom, #232526, #414345); }
+        .script-title { font-size: 16px; font-weight: 500; margin-bottom: 10px; color: #7b9eb0; }
+        .script-logline { font-size: 12px; color: #666; margin-bottom: 20px; line-height: 1.6; flex-grow: 1; padding: 0 10px; }
         
-        .script-title { font-size: 18px; font-weight: 600; margin-bottom: 10px; color: #5a7282; }
-        .script-logline { font-size: 13px; color: #666; margin-bottom: 20px; flex-grow: 1; }
-        .btn-read { display: block; text-align: center; background-color: #647b89; color: #fff; padding: 10px 0; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-read:hover { background-color: #4a5c66; }
+        .btn-read { display: block; width: 100%; text-align: center; background-color: #7b9eb0; color: #fff; padding: 12px 0; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-read:hover { background-color: #648293; }
+
+        /* --- WIDGET AREA (Bottom section matching the picture) --- */
+        .widget-area { background-color: #f9f9f9; padding: 60px 20px; border-top: 1px solid #eee; }
+        .widget-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; text-align: center; }
+        .widget-title { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #777; margin-bottom: 20px; }
+        
+        /* Circular "Shop" button placeholder */
+        .circle-btn { width: 120px; height: 120px; border: 1px solid #7b9eb0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-family: 'Great Vibes', cursive; font-size: 36px; color: #7b9eb0; }
+        
+        /* Search bar */
+        .search-box input { width: 100%; padding: 10px; border: 1px solid #ccc; margin-bottom: 15px; }
+        .search-box p { font-family: 'Great Vibes', cursive; font-size: 24px; color: #888; }
 
         /* --- FOOTER --- */
-        footer { background-color: #647b89; color: #fff; text-align: center; padding: 40px 20px; font-size: 13px; }
+        footer { background-color: #7b9eb0; color: #fff; text-align: center; padding: 20px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
 
-        /* --- RESPONSIVE FALLBACKS (For Mobile) --- */
+        /* --- RESPONSIVE FALLBACKS --- */
         @media (max-width: 992px) {
-            .hero-grid { flex-direction: column; text-align: center; gap: 30px; }
-            .hero-image-container { max-width: 300px; margin: 0 auto; }
-            .hero-text { align-items: center; }
+            .hero-wrapper { flex-direction: column; }
+            .hero-image-container { min-height: 400px; }
             .script-grid { grid-template-columns: repeat(2, 1fr); }
+            .widget-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .script-grid { grid-template-columns: 1fr; }
+            .newsletter { flex-direction: column; }
+            .newsletter input { width: 100%; }
         }
     </style>
 </head>
@@ -89,77 +107,97 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Scripts</a></li>
+                <li><a href="#">Blog</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
             <div class="social-icons">
+                <i class="fab fa-facebook-f"></i>
                 <i class="fab fa-twitter"></i>
                 <i class="fab fa-instagram"></i>
-                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-youtube"></i>
             </div>
         </div>
     </header>
 
     <section class="brand-section">
-        <h1>The Draft Room</h1>
-        <p>Priscy Olad | Screenwriter</p>
+        <h1>Priscy Olad</h1>
+        <p>The Draft Room</p>
     </section>
 
-    <section class="hero">
-        <div class="hero-grid">
-            
-            <div class="hero-image-container">
-                <img src="image/Priscy.jpg" alt="Priscy Olad">
-            </div>
-
-            <div class="hero-text">
-                <h2>Welcome to The Draft Room</h2>
-                <p><strong>Hi there, I'm Priscy Olad.</strong></p>
-                <p>I am a passionate screenwriter dedicated to bringing compelling characters, sharp dialogue, and gripping narratives to the page.</p>
-                <p>The Draft Room is my personal portfolio and creative space—a place where my original scripts live before they hit the screen. Whether you're an industry professional looking for fresh voices, a fellow writer, or just someone who loves a great story, you are in the right place.</p>
-                <p>Storytelling is a collaborative art. I invite you to dive into my latest screenplays, explore the worlds I've built, and drop a review to let me know your thoughts.</p>
-                <a href="#scripts" class="btn-outline">Read My Scripts</a>
-            </div>
-
+    <section class="hero-wrapper">
+        <div class="hero-text">
+            <h2>Welcome</h2>
+            <p><em>Hi there and welcome to my website.</em></p>
+            <p>I am Priscy Olad, a passionate screenwriter dedicated to bringing compelling characters, sharp dialogue, and gripping narratives to the page.</p>
+            <p>The Draft Room is my personal portfolio—a place where my original scripts live before they hit the screen. Whether you're an industry professional or a fellow writer, you are in the right place.</p>
+            <p>Take a look around, read my latest work, and feel free to leave a review.</p>
+            <p>All the best,<br><strong>Priscy</strong></p>
+            <a href="#scripts" class="btn-solid">Browse Scripts</a>
         </div>
+        
+        <div class="hero-image-container"></div>
+    </section>
+
+    <section class="newsletter">
+        <h3>Sign up for updates by email:</h3>
+        <input type="email" placeholder="E-Mail Address">
+        <button>Subscribe</button>
     </section>
 
     <section id="scripts" class="scripts-section container">
-        <h3>Original Screenplays</h3>
-        
         <div class="script-grid">
             
             <div class="script-card">
                 <img src="image/Under-the-white-coat.jpg" alt="Under the white coat cover" class="real-cover-img">
                 <h4 class="script-title">Under The White Coat</h4>
-                <p class="script-logline">A brief logline or summary of your script goes right here to hook the reader.</p>
-                <a href="script.html" class="btn-read">Read & Review</a>
+                <p class="script-logline">When a young medical resident discovers a cover-up at her prestigious hospital, she must risk her career to expose the truth.</p>
+                <a href="script.html" class="btn-read">View Script</a>
             </div>
 
             <div class="script-card">
-                <div class="script-cover cover-2">Neon Rain</div>
+                <div class="placeholder-cover">Script Two</div>
                 <h4 class="script-title">Neon Rain</h4>
                 <p class="script-logline">In a cyberpunk future, a rogue AI hires a burnt-out private investigator to find out who is deleting its memories.</p>
-                <a href="script.html" class="btn-read">Read & Review</a>
+                <a href="script.html" class="btn-read">View Script</a>
             </div>
 
             <div class="script-card">
-                <div class="script-cover cover-3">The Last Heir</div>
+                <div class="placeholder-cover">Script Three</div>
                 <h4 class="script-title">The Last Heir</h4>
                 <p class="script-logline">A historical drama following the forgotten bastard son of a king who must reclaim his throne before a tyrannical duke destroys the realm.</p>
-                <a href="script.html" class="btn-read">Read & Review</a>
+                <a href="script.html" class="btn-read">View Script</a>
             </div>
 
             <div class="script-card">
-                <div class="script-cover cover-4">Midnight Run</div>
+                <div class="placeholder-cover">Script Four</div>
                 <h4 class="script-title">Midnight Run</h4>
                 <p class="script-logline">Two rival getaway drivers are forced to team up when a heist goes wrong, leading to a high-speed chase across the country.</p>
-                <a href="script.html" class="btn-read">Read & Review</a>
+                <a href="script.html" class="btn-read">View Script</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="widget-area">
+        <div class="widget-grid">
+            <div>
+                <h4 class="widget-title">Services</h4>
+                <div class="circle-btn">Hire!</div>
+            </div>
+            <div>
+                <h4 class="widget-title">Instagram</h4>
+                <p style="font-size: 12px; color: #888; margin-top: 40px;">[ Instagram Feed Will Go Here ]</p>
+            </div>
+            <div class="search-box">
+                <h4 class="widget-title">Search</h4>
+                <input type="text" placeholder="Search...">
+                <p>"Happy Reading"</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Copyright © 2026 Priscy Olad | The Draft Room</p>
+        <p>Copyright © 2026 Priscy Olad | Site Credits</p>
     </footer>
 
 </body>
